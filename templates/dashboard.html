@@ -113,7 +113,6 @@
                         res = await axios.post('/api/add', formData);
                     }
 
-                    // Feature 1: Inform the user if MAC was detected or not
                     if (res.data.message) {
                         alert(res.data.message);
                     }
@@ -142,7 +141,6 @@
 
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                         {machines.map(m => {
-                            // Feature 2: Logic to disable button if MAC is missing
                             const isWakeDisabled = m.status === 'online' || !m.mac;
 
                             return (
