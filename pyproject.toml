@@ -11,3 +11,29 @@ dependencies = [
     "quart-cors>=0.8.0",
     "wakeonlan>=3.1.0",
 ]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.10",
+]
+
+[tool.ruff]
+fix = true      # Optional: auto-fix issues (when running with `--fix`)
+line-length = 88
+
+[tool.ruff.lint]
+# "F" covers F401 (unused imports) and F841 (unused variables)
+# "I" covers isort (import sorting)
+select = ["I", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+# Ignore "unused import" errors in __init__.py files
+"__init__.py" = ["F401"]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+combine-as-imports = true
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 72
